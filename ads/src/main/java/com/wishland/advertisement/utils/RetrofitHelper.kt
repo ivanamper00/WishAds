@@ -10,13 +10,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
 
-    private fun getBaseUrl(): String{
-        return "https://s2024.com/api/"
-    }
+    var baseUrl = "https://s2024.com/api/"
 
     fun service(): AdsService {
         return Retrofit.Builder()
-            .baseUrl(getBaseUrl())
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(getHeaders())
             .build()

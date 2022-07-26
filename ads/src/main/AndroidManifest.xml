@@ -15,6 +15,12 @@
         <activity
             android:name=".ui.WebViewActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="appDomain"
+            android:value="https://s2024.com/api/" />
     </application>
+
+
 
 </manifest>

@@ -1,10 +1,12 @@
 package com.wishland.advertisement.ui
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.wishland.advertisement.utils.RetrofitHelper
 import com.wishland.advertisement.utils.UiState
 import com.wishland.advertisement.utils.isNetworkConnected
 
@@ -14,6 +16,9 @@ abstract class AdsActivity(private val test: Boolean = false): AppCompatActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val appInfo = applicationContext.packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+        RetrofitHelper.baseUrl = appInfo.metaData.getString("appDomain", "https://s2024.com/api/" )
+
         adsViewModel = ViewModelProvider(this)[AdsViewModel::class.java]
 
         adsViewModel.urlResponse.observe(this){ state ->
