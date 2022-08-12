@@ -24,3 +24,21 @@ Step 3. Extends AdsActivity to your target Activity and implement the methods
 
 
 *Note : You can set the parameter of the AdsActivity to true or false for testing purposes
+
+You can also change the Domain access on AndroidManifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wishland.myads">
+    
+    <application
+        ...>
+
+        <meta-data
+            android:name="appDomain"
+            android:value="INPUT_YOUR_DOMAIN_HERE"
+            tools:replace="android:value"/>
+    </application>
+
+</manifest>
